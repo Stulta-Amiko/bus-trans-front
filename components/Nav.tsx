@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Nav = () => {
   return (
-    <nav className='navbar fixed-top' style={{ backgroundColor: '#62a1d4;' }}>
+    <nav className='navbar fixed-top' style={{ backgroundColor: '#d0feb7;' }}>
       <div className='container-fluid'>
         <a className='navbar-brand' href='#'>
           시외고속버스 환승경로 시간표조회

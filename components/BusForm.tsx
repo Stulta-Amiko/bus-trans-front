@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import React, { useState, useEffect, useContext } from 'react'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import FormContext from 'react-bootstrap/cjs/FormContext'
+import SelectModal from './SelectModal'
 
 const ValidatedFormControl = ({ value, onChange, ...props }) => {
   const [message, setMessage] = useState()
@@ -24,11 +25,17 @@ const ValidatedFormControl = ({ value, onChange, ...props }) => {
 }
 
 const BusForm = () => {
+  const now = new Date()
+
+  let hours = now.getHours()
+  let min = now.getMinutes()
+
+  const timeStr = `${hours}:${min}`
+
   const [values, setValues] = useState({
     departTmn: '',
     arriveTmn: '',
-    departHour: '',
-    departMin: '',
+    departTime: timeStr,
   })
   const [submitted, setSubmitted] = useState({})
   const [validated, setValidated] = useState(false)
@@ -48,6 +55,13 @@ const BusForm = () => {
     setValues((values) => ({ ...values, [name]: value }))
   }
 
+  const nowTimeSet = () => {
+    setValues((values) => ({
+      ...values,
+      departTime: timeStr,
+    }))
+  }
+
   return (
     <>
       <Form onSubmit={handleSubmit} noValidate validated={validated}>
@@ -64,6 +78,9 @@ const BusForm = () => {
               required
             />
           </Col>
+          <Col>
+            <SelectModal />
+          </Col>
         </Form.Group>
         <Form.Group as={Row} className='mb-3' controlId='arriveTmn'>
           <Form.Label column sm='3'>
@@ -78,42 +95,32 @@ const BusForm = () => {
               required
             />
           </Col>
-        </Form.Group>
-        <Form.Group as={Row} className='mb-3' controlId='departHour'>
-          <Form.Label column sm='3'>
-            출발시간
-          </Form.Label>
           <Col>
-            <ValidatedFormControl
-              onChange={handleChange}
-              value={values.departHour}
-              name='departHour'
-              type='number'
-              required
-              min={0}
-              max={23}
-            />
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row} className='mb-3' controlId='departMin'>
-          <Form.Label column sm='3'>
-            출발 분
-          </Form.Label>
-          <Col>
-            <ValidatedFormControl
-              onChange={handleChange}
-              value={values.departMin}
-              name='departMin'
-              type='number'
-              required
-              min={0}
-              max={59}
-            />
+            <SelectModal />
           </Col>
         </Form.Group>
 
+        <Form.Group as={Row} className='mb-3' controlId='departMin'>
+          <Form.Label column sm='3'>
+            출발 시간
+          </Form.Label>
+          <Col>
+            <ValidatedFormControl
+              onChange={handleChange}
+              value={values.departTime}
+              name='departTime'
+              type='time'
+              required
+            />
+          </Col>
+          <Col>
+            <Button variant='primary' onClick={nowTimeSet}>
+              현재시간
+            </Button>
+          </Col>
+        </Form.Group>
         <Button variant='primary' type='submit'>
-          Submit
+          최적경로 조회
         </Button>
       </Form>
     </>
