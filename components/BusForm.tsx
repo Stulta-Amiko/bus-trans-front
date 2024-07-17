@@ -61,6 +61,23 @@ const BusForm = () => {
       departTime: timeStr,
     }))
   }
+  const [selectedValue, setSelectedValue] = useState('')
+
+  const departValueChange = (value) => {
+    setValues((values) => ({
+      ...values,
+      departTmn: value,
+    }))
+    console.log(value)
+  }
+
+  const arriveValueChange = (value) => {
+    setValues((values) => ({
+      ...values,
+      arriveTmn: value,
+    }))
+    console.log(value)
+  }
 
   return (
     <>
@@ -74,12 +91,13 @@ const BusForm = () => {
               onChange={handleChange}
               value={values.departTmn}
               name='departTmn'
+              readOnly={true}
               type='text'
               required
             />
           </Col>
           <Col>
-            <SelectModal />
+            <SelectModal disabled={false} onValueChange={departValueChange} />
           </Col>
         </Form.Group>
         <Form.Group as={Row} className='mb-3' controlId='arriveTmn'>
@@ -90,13 +108,17 @@ const BusForm = () => {
             <ValidatedFormControl
               onChange={handleChange}
               value={values.arriveTmn}
+              readOnly={true}
               name='arriveTmn'
               type='text'
               required
             />
           </Col>
           <Col>
-            <SelectModal />
+            <SelectModal
+              disabled={values.departTmn === '' ? true : false}
+              onValueChange={arriveValueChange}
+            />
           </Col>
         </Form.Group>
 

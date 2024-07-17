@@ -1,0 +1,22 @@
+.InsideCard {
+    margin-bottom: 3rem;
+    max-height: 16rem;
+    overflow-y: auto;
+}
+
+.CardItem {
+    margin-bottom: 1px;
+    font-size: 20px;
+}
+
+.CardItemFixed {
+    color: #555555;
+    background-color: #E3F6FF;
+    margin-bottom: 1px;
+    font-size: 20px;
+}
+
+.CardItem:hover {
+    color: #555555;
+    background-color: #E3F6FF;
+}
