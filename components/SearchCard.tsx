@@ -6,7 +6,7 @@ const SearchCard = () => {
       style={{
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh',
+        height: '70vh',
         display: 'flex',
       }}
     >
