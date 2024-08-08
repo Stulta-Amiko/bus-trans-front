@@ -1,0 +1,13 @@
+.CardTime {
+    width: 8rem;
+    height: 5rem;
+    margin: 0.8rem 0.5rem;
+    border-radius: 1rem;
+    border: 0;
+    background-color: #e8efff;
+    justify-content: center;
+}
+
+.CardTime:hover {
+    background-color: #cce8ff;
+}

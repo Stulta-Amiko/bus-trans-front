@@ -12,16 +12,15 @@
 
 import { useState } from 'react'
 import { terminalName } from '../data/termData'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import Modal from 'react-bootstrap/Modal'
-import Card from 'react-bootstrap/Card'
+import { Button, Card, Modal, Form } from 'react-bootstrap'
+import { BsGeoAlt } from 'react-icons/bs'
 import './SelectModal.css'
 
-const SelectModal = ({ onValueChange, disabled }) => {
+const SelectModal = ({ onValueChange, displayText }) => {
   const [show, setShow] = useState(false)
   const [fixColor, setColorFix] = useState(false)
   const [searchMode, setSearchMode] = useState(false)
+  const [cardSelect, setCardSelect] = useState('')
   const [selectItem, setSelectItem] = useState('')
   const [searchValue, setSearchValue] = useState('')
   const [searchArr, setSearchArr] = useState<string[]>([])
@@ -62,26 +61,34 @@ const SelectModal = ({ onValueChange, disabled }) => {
 
   return (
     <>
-      <Button variant='primary' disabled={disabled} onClick={handleShow}>
-        터미널 찾기
-      </Button>
-
+      <Card className='CardSearch' onClick={handleShow}>
+        <BsGeoAlt
+          style={{
+            margin: '1.5rem 1rem',
+            fontSize: '30px',
+            color: '#0195fa',
+          }}
+        />
+        <div
+          style={{
+            margin: '1.5rem 0.5rem',
+            fontSize: '20px',
+            fontWeight: 'bold',
+          }}
+        >
+          {displayText}
+        </div>
+      </Card>
       <Modal
         show={show}
         onHide={handleClose}
         size='lg'
         aria-labelledby='contained-modal-title-vcenter'
-        centered
+        centered={true}
       >
-        <Modal.Header closeButton>
-          <Modal.Title id='contained-modal-title-vcenter'>
-            터미널 이름 검색
-          </Modal.Title>
-        </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className='mb-3' controlId='formBasicEmail'>
-              <Form.Label>터미널명</Form.Label>
               <Form.Control
                 type='text'
                 placeholder='터미널이름을 입력하세요.'
@@ -90,6 +97,7 @@ const SelectModal = ({ onValueChange, disabled }) => {
                 onChange={() => {
                   handleChange(event)
                 }}
+                style={{ fontSize: '20px' }}
               />
             </Form.Group>
             <Card className='InsideCard'>
@@ -139,20 +147,48 @@ const SelectModal = ({ onValueChange, disabled }) => {
             </Card>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: '1rem',
+            flexDirection: 'column',
+          }}
+        >
           <Button
-            variant='primary'
             onClick={() => {
               handleClose()
+              setCardSelect(selectItem)
               clickChange(selectItem)
+            }}
+            style={{
+              margin: '0.2rem 0rem',
+              border: '3px solid',
+              borderRadius: '10px',
+              backgroundColor: '#0195fa',
+              color: '#FFFFFF',
+              fontSize: '20px',
+              width: '10rem',
             }}
           >
             확인
           </Button>
-          <Button variant='secondary' onClick={handleClose}>
+          <Button
+            onClick={handleClose}
+            style={{
+              margin: '0.2rem 0rem',
+              border: '3px solid',
+              borderRadius: '10px',
+              color: '#FFFFFF',
+              backgroundColor: '#999999',
+              fontSize: '20px',
+              width: '10rem',
+            }}
+          >
             닫기
           </Button>
-        </Modal.Footer>
+        </div>
       </Modal>
     </>
   )
