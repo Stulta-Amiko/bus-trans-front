@@ -17,7 +17,7 @@ const SearchRecordCard = () => {
   const [loadedData, setLoadedData] = useState()
   const [loading, setLoading] = useState(false)
 
-  const submitHandler = async (event) => {
+  const submitHandler = async (event: React.FormEvent) => {
     event.preventDefault()
     try {
       let departHour = values.departTime.split(':')[0]

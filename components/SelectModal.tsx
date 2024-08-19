@@ -16,7 +16,14 @@ import { Button, Card, Modal, Form } from 'react-bootstrap'
 import { BsGeoAlt } from 'react-icons/bs'
 import './SelectModal.css'
 
-const SelectModal = ({ onValueChange, displayText }) => {
+// onValueChnage 타입수정
+const SelectModal = ({
+  onValueChange,
+  displayText,
+}: {
+  onValueChange: (value: string) => void
+  displayText: string
+}) => {
   const [show, setShow] = useState(false)
   const [fixColor, setColorFix] = useState(false)
   const [searchMode, setSearchMode] = useState(false)
@@ -27,7 +34,7 @@ const SelectModal = ({ onValueChange, displayText }) => {
 
   let searchResult: string[] = []
 
-  const clickChange = (event) => {
+  const clickChange = (event: string) => {
     onValueChange(event)
   }
 
@@ -36,7 +43,7 @@ const SelectModal = ({ onValueChange, displayText }) => {
     return inputValue.replace(regex, '')
   }
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = inputValueVali(event.target.value)
     setSearchValue(inputValue)
     if (inputValue === '') {
@@ -45,7 +52,6 @@ const SelectModal = ({ onValueChange, displayText }) => {
     } else {
       setSearchMode(true)
     }
-    console.log(searchMode)
     terminalName.map((item) => {
       let regex = new RegExp(`${inputValue}`)
       if (regex.test(item)) {
@@ -94,9 +100,7 @@ const SelectModal = ({ onValueChange, displayText }) => {
                 placeholder='터미널이름을 입력하세요.'
                 defaultValue={''}
                 value={searchValue}
-                onChange={() => {
-                  handleChange(event)
-                }}
+                onChange={handleChange}
                 style={{ fontSize: '20px' }}
               />
             </Form.Group>

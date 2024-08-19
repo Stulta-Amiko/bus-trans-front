@@ -4,7 +4,7 @@ import ResultCarousel from './ResultCarousel'
 import SelectModal from './SelectModal'
 import axios from 'axios'
 import 'dotenv/config'
-import React, { useState } from 'react'
+import React, { FormEventHandler, useState } from 'react'
 import { Form, Button, Card, Modal, Spinner } from 'react-bootstrap'
 import TimePickerModal from './TimePickerModal'
 
@@ -29,30 +29,28 @@ const SearchCapsule = () => {
   const [loadedData, setLoadedData] = useState()
   const [loading, setLoading] = useState(false)
 
-  const handleChange = (value, name) => {
+  const handleChange = (value: string, name: string) => {
     setValues((values) => ({ ...values, [name]: value }))
     if (name === 'departTime') {
       setDisplayTime(value)
     }
   }
 
-  const departValueChange = (value) => {
+  const departValueChange = (value: string) => {
     setValues((values) => ({
       ...values,
       departTmn: value,
     }))
-    console.log(value)
   }
 
-  const arriveValueChange = (value) => {
+  const arriveValueChange = (value: string) => {
     setValues((values) => ({
       ...values,
       arriveTmn: value,
     }))
-    console.log(value)
   }
 
-  const submitHandler = async (event) => {
+  const submitHandler = async (event: React.FormEvent) => {
     event.preventDefault()
     try {
       let departHour = values.departTime.split(':')[0]
@@ -86,8 +84,6 @@ const SearchCapsule = () => {
         <Button
           className='ChangeButton'
           onClick={() => {
-            console.log('click')
-            console.log(values.departTime)
             let temp = values.departTmn
             departValueChange(values.arriveTmn)
             arriveValueChange(temp)

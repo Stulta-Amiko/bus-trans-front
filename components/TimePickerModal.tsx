@@ -1,28 +1,41 @@
-import { Card, Modal, Form, Button } from 'react-bootstrap'
-import { useEffect, useState, useContext } from 'react'
+import { Card, Modal, Form, Button, FormProps } from 'react-bootstrap'
+import React, { useEffect, useState, useContext } from 'react'
 import FormContext from 'react-bootstrap/cjs/FormContext'
 
-const ValidatedFormControl = ({ value, onChange, ...props }) => {
+//any타입 ok? 수정필요
+interface FormGroupProps extends React.ComponentPropsWithoutRef<any> {
+  value: string
+  onChange: (value: string, name: string) => void
+}
+const ValidatedFormControl = ({
+  value,
+  onChange,
+  ...props
+}: FormGroupProps) => {
   const [message, setMessage] = useState()
   const { controlId } = useContext(FormContext)
-
   return (
     <>
       <Form.Control
         {...props}
         value={value}
-        onChange={(event) => {
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
           onChange(event.target.value, event.target.name || controlId)
           event.target.checkValidity()
         }}
-        onInvalid={(event) => setMessage(event.target.validationMessage)}
+        onInvalid={(event: any) => setMessage(event.target.validationMessage)}
       />
       <Form.Control.Feedback type='invalid'>{message}</Form.Control.Feedback>
     </>
   )
 }
+// onValueChnage 타입수정
 
-const TimePickerModal = ({ onValueChange }) => {
+const TimePickerModal = ({
+  onValueChange,
+}: {
+  onValueChange: (value: string, name: string) => void
+}) => {
   const now = new Date()
 
   let hours = now.getHours()
@@ -41,10 +54,7 @@ const TimePickerModal = ({ onValueChange }) => {
   }, [])
 
   const nowTimeSet = () => {
-    onValueChange((values) => ({
-      ...values,
-      departTime: timeStr,
-    }))
+    onValueChange(values.departTime, 'departTime')
     let timeFormat = timeStr.split(':')
     if (parseInt(timeFormat[0]) < 10) {
       timeFormat[0] = '0' + timeFormat[0]
@@ -61,7 +71,7 @@ const TimePickerModal = ({ onValueChange }) => {
     departTime: timeStr,
   })
 
-  const handleChange = (value, name) => {
+  const handleChange = (value: string, name: string) => {
     setValues((values) => ({ ...values, [name]: value }))
     if (name === 'departTime') {
       setDisplayTime(value)

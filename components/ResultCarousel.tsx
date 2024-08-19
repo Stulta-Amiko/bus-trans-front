@@ -2,14 +2,33 @@ import { useEffect, useState } from 'react'
 import Carousel from 'react-bootstrap/Carousel'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
+import { Axios, AxiosResponse } from 'axios'
 
-const ResultCarousel = (props) => {
-  const [index, setIndex] = useState(0)
+type routeDetail = {
+  count: number
+  arrHour: string
+  arrMin: string
+  arrTmn: string
+  depHour: string
+  depMin: string
+  depTmn: string
+}
 
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex)
-  }
+type info = {
+  totalTime: number
+  transferCount: number
+  transferTime: number
+}
 
+type route = { route: routeDetail[] }
+
+type item = [header: info, body: route]
+
+type items = {
+  items: item[]
+}
+
+const ResultCarousel = (props: any) => {
   return (
     <>
       {props.items.length === 0 ? (
@@ -37,7 +56,7 @@ const ResultCarousel = (props) => {
         </div>
       ) : (
         <Carousel data-bs-theme='dark'>
-          {props.items.map((item) => (
+          {props.items.map((item: item) => (
             <Carousel.Item style={{ marginLeft: '0rem' }}>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <Card
@@ -90,67 +109,69 @@ const ResultCarousel = (props) => {
                       }}
                     ></hr>
                     <Card.Text>
-                      {item[1].route?.map((routeItem, idx) => (
-                        <>
-                          <div style={{ margin: '0.3rem 0 0' }}>
-                            <span
-                              style={{ fontSize: '20px', fontWeight: 'bold' }}
-                            >
-                              출발: {routeItem.depTmn}
-                            </span>
-                            <div>
-                              {parseInt(routeItem.depHour) > 11
-                                ? parseInt(routeItem.depHour) === 12
-                                  ? `오후 12시 `
-                                  : `오후 ${
-                                      parseInt(routeItem.depHour) % 12
-                                    }시 `
-                                : parseInt(routeItem.depHour) === 0
-                                ? `오전 12시 `
-                                : `오전 ${routeItem.depHour}시 `}
-                              {parseInt(routeItem.depMin) < 10
-                                ? parseInt(routeItem.depMin) === 0
-                                  ? `정각`
-                                  : `0${routeItem.depMin}분`
-                                : `${routeItem.depMin}분`}
+                      {item[1].route.map(
+                        (routeItem: routeDetail, idx: number) => (
+                          <>
+                            <div style={{ margin: '0.3rem 0 0' }}>
+                              <span
+                                style={{ fontSize: '20px', fontWeight: 'bold' }}
+                              >
+                                출발: {routeItem.depTmn}
+                              </span>
+                              <div>
+                                {parseInt(routeItem.depHour) > 11
+                                  ? parseInt(routeItem.depHour) === 12
+                                    ? `오후 12시 `
+                                    : `오후 ${
+                                        parseInt(routeItem.depHour) % 12
+                                      }시 `
+                                  : parseInt(routeItem.depHour) === 0
+                                  ? `오전 12시 `
+                                  : `오전 ${routeItem.depHour}시 `}
+                                {parseInt(routeItem.depMin) < 10
+                                  ? parseInt(routeItem.depMin) === 0
+                                    ? `정각`
+                                    : `0${routeItem.depMin}분`
+                                  : `${routeItem.depMin}분`}
+                              </div>
                             </div>
-                          </div>
-                          <div style={{ margin: '0 0 0.5rem' }}>
-                            <span
-                              style={{ fontSize: '20px', fontWeight: 'bold' }}
-                            >
-                              도착: {routeItem.arrTmn}
-                            </span>
-                            <div>
-                              {parseInt(routeItem.arrHour) > 11
-                                ? parseInt(routeItem.arrHour) === 12
-                                  ? `오후 12시 `
-                                  : `오후 ${
-                                      parseInt(routeItem.arrHour) % 12
-                                    }시 `
-                                : parseInt(routeItem.arrHour) === 0
-                                ? `오전 12시 `
-                                : `오전 ${routeItem.arrHour}시 `}
-                              {parseInt(routeItem.arrMin) < 10
-                                ? parseInt(routeItem.arrMin) === 0
-                                  ? `정각`
-                                  : `0${routeItem.arrMin}분`
-                                : `${routeItem.arrMin}분`}
+                            <div style={{ margin: '0 0 0.5rem' }}>
+                              <span
+                                style={{ fontSize: '20px', fontWeight: 'bold' }}
+                              >
+                                도착: {routeItem.arrTmn}
+                              </span>
+                              <div>
+                                {parseInt(routeItem.arrHour) > 11
+                                  ? parseInt(routeItem.arrHour) === 12
+                                    ? `오후 12시 `
+                                    : `오후 ${
+                                        parseInt(routeItem.arrHour) % 12
+                                      }시 `
+                                  : parseInt(routeItem.arrHour) === 0
+                                  ? `오전 12시 `
+                                  : `오전 ${routeItem.arrHour}시 `}
+                                {parseInt(routeItem.arrMin) < 10
+                                  ? parseInt(routeItem.arrMin) === 0
+                                    ? `정각`
+                                    : `0${routeItem.arrMin}분`
+                                  : `${routeItem.arrMin}분`}
+                              </div>
                             </div>
-                          </div>
-                          {idx === item[1].route.length - 1 ? (
-                            <></>
-                          ) : (
-                            <hr
-                              style={{
-                                border: '0',
-                                borderBottom: '2px dashed #eee',
-                                background: '#999',
-                              }}
-                            ></hr>
-                          )}
-                        </>
-                      ))}
+                            {idx === item[1].route.length - 1 ? (
+                              <></>
+                            ) : (
+                              <hr
+                                style={{
+                                  border: '0',
+                                  borderBottom: '2px dashed #eee',
+                                  background: '#999',
+                                }}
+                              ></hr>
+                            )}
+                          </>
+                        )
+                      )}
                     </Card.Text>
                   </Card.Body>
                 </Card>
