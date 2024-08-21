@@ -55,6 +55,7 @@ const SearchCapsule = () => {
     try {
       let departHour = values.departTime.split(':')[0]
       let departMin = values.departTime.split(':')[1]
+      console.log(back)
 
       /* axios로 get요청해서 받아오기 */
       reqResult = await axios
