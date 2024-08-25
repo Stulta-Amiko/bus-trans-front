@@ -1,8 +1,5 @@
-import { useEffect, useState } from 'react'
 import Carousel from 'react-bootstrap/Carousel'
-import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
-import { Axios, AxiosResponse } from 'axios'
 
 type routeDetail = {
   count: number
@@ -63,6 +60,9 @@ const ResultCarousel = (props: any) => {
                   style={{
                     width: '34rem',
                     margin: '2rem 0rem 4rem',
+                    border: '2px solid',
+                    borderRadius: '10px',
+                    borderColor: '#c7c5da',
                   }}
                   data-bs-theme='light'
                 >
@@ -103,7 +103,7 @@ const ResultCarousel = (props: any) => {
                     )}
                     <hr
                       style={{
-                        boxShadow: '0 10px 10px -10px #8a8a8a inset',
+                        boxShadow: '0 10px 10px -10px #0000948b inset',
                         height: '10px',
                         border: '0',
                       }}

@@ -1,11 +1,12 @@
-import { BsArrowRepeat } from 'react-icons/bs'
 import './SearchCapsule.css'
 import ResultCarousel from './ResultCarousel'
 import SelectModal from './SelectModal'
 import axios from 'axios'
 import 'dotenv/config'
-import React, { FormEventHandler, useState } from 'react'
+import React, { useState } from 'react'
 import { Form, Button, Card, Modal, Spinner } from 'react-bootstrap'
+import { FaExchangeAlt } from 'react-icons/fa'
+import { FaXmark } from 'react-icons/fa6'
 import TimePickerModal from './TimePickerModal'
 
 const SearchCapsule = () => {
@@ -78,25 +79,40 @@ const SearchCapsule = () => {
   return (
     <Form onSubmit={submitHandler}>
       <Card className='CardContainer'>
-        <SelectModal
-          onValueChange={departValueChange}
-          displayText={values.departTmn}
-        />
-        <Button
-          className='ChangeButton'
-          onClick={() => {
-            let temp = values.departTmn
-            departValueChange(values.arriveTmn)
-            arriveValueChange(temp)
+        <div className='EllipseUnder' />
+        <div className='EllipseUpper' />
+        <Card className='SelectContainer'>
+          <SelectModal
+            onValueChange={departValueChange}
+            displayText={values.departTmn}
+            flagType={false}
+          />
+
+          <FaExchangeAlt
+            className='ChangeButton'
+            onClick={() => {
+              let temp = values.departTmn
+              departValueChange(values.arriveTmn)
+              arriveValueChange(temp)
+            }}
+          />
+          <SelectModal
+            onValueChange={arriveValueChange}
+            displayText={values.arriveTmn}
+            flagType
+          />
+        </Card>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            margin: '1rem 0',
+            zIndex: 2,
           }}
         >
-          <BsArrowRepeat />
-        </Button>
-        <SelectModal
-          onValueChange={arriveValueChange}
-          displayText={values.arriveTmn}
-        />
-        <TimePickerModal onValueChange={handleChange} />
+          <TimePickerModal onValueChange={handleChange} />
+        </div>
+
         <Modal
           show={modalShow}
           onHide={() => {
@@ -106,6 +122,21 @@ const SearchCapsule = () => {
           aria-labelledby='contained-modal-title-vcenter'
           centered
         >
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              textAlign: 'center',
+              margin: '1rem 0rem',
+            }}
+          >
+            <FaXmark
+              onClick={() => {
+                setModalShow(false)
+              }}
+              className='CloseIcon'
+            />
+          </div>
           <Modal.Body>
             {loading ? (
               <div
@@ -134,16 +165,6 @@ const SearchCapsule = () => {
               교통상황에 따라 도착시간은 달라질 수 있습니다.
             </span>
           </Modal.Body>
-          <Modal.Footer>
-            <Button
-              variant='secondary'
-              onClick={() => {
-                setModalShow(false)
-              }}
-            >
-              닫기
-            </Button>
-          </Modal.Footer>
         </Modal>
         <Button
           className='SubmitButton'

@@ -1,13 +1,106 @@
 .CardTime {
-    width: 8rem;
-    height: 5rem;
-    margin: 0.8rem 0.5rem;
-    border-radius: 1rem;
+    width: 10rem;
+    height: 4rem;
+    margin: 0rem 1rem 0rem 0rem;
+    border-radius: 10px;
     border: 0;
-    background-color: #e8efff;
+    background-color: #FFF7FC;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
+}
+
+.NowtimeButton {
+    height: 4rem;
+    width: 15rem;
+    border: 0;
+    border-radius: 10px;
+    background-color: #4848FE;
+    font-weight: bold;
+    font-size: 20px;
+    z-index: 2;
+}
+
+.NowtimeButton:hover {
+    background-color: #3a3ad2;
 }
 
 .CardTime:hover {
-    background-color: #cce8ff;
+    background-color: #d6d6fb;
+}
+
+.CloseIcon {
+    font-size: 30px;
+    position: absolute;
+    top: 1.3rem;
+    right: 0;
+    margin-right: 2rem;
+    z-index: 1;
+    color: #4747FE;
+}
+
+.CloseIcon:hover {
+    color: #3a3ad2;
+    cursor: pointer;
+}
+
+.Arrow {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4747FE;
+    margin-left: 1rem;
+    margin-bottom: 0rem;
+}
+
+.Arrow:hover {
+    background-color: #d6d6fb;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.UnderArrow {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4747FE;
+    margin-left: 1rem;
+    margin-top: 0rem;
+}
+
+.UnderArrow:hover {
+    background-color: #d6d6fb;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.CheckButton {
+    background-color: #4747FE;
+    height: 5rem;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.CheckButton:hover {
+    background-color: #3a3ad2;
+    height: 5rem;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.AmPmSpan {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0rem 0.2rem;
+}
+
+.TimeForm {
+    width: 14rem;
+    font-size: 30px;
+    font-weight: bold;
+    height: 30px;
+    background-color: rgab(255, 255, 255, 0);
+    border: 0;
 }

@@ -1,28 +1,19 @@
-// 터미널 리스트를 가져오는 걸 구현해야하는데 어떻게 해야할지?
-/*
-  첫번째 안 프론트엔드단에 정적인형태로 기록한다음에 거기서 할지?
-  두번쨰 안 백엔드단에다가 검색하는 api를 새로만들기? 근데 이건 백엔드로의 부하가 너무 심해지고 굳이 몇개도안되는 터미널리스트를 거기서 가져오는건..
-
-  첫번째 안으로 한다고 해도 csv형태로 기록된 파일을 어떻게? json형태로 변환해서 저장한다음에 불러오던가 해야할듯?
-  
-  추후 구현사항으로는 
-  검색했을때 출발지 결정하면 
-  두번째 목적지 검색할떄는 출발지에서 갈수있는곳만 출력할수있도록? 구현해야함 
-*/
-
 import { useState } from 'react'
-import { terminalName } from '../data/termData'
-import { Button, Card, Modal, Form } from 'react-bootstrap'
-import { BsGeoAlt } from 'react-icons/bs'
 import './SelectModal.css'
+import { Button, Card, Modal, Form } from 'react-bootstrap'
+import { FaRegFlag, FaFlagCheckered } from 'react-icons/fa'
+import { FaXmark } from 'react-icons/fa6'
+import { terminalName } from '../data/termData'
 
 // onValueChnage 타입수정
 const SelectModal = ({
   onValueChange,
   displayText,
+  flagType,
 }: {
   onValueChange: (value: string) => void
   displayText: string
+  flagType: boolean
 }) => {
   const [show, setShow] = useState(false)
   const [fixColor, setColorFix] = useState(false)
@@ -68,21 +59,28 @@ const SelectModal = ({
   return (
     <>
       <Card className='CardSearch' onClick={handleShow}>
-        <BsGeoAlt
-          style={{
-            margin: '1.5rem 1rem',
-            fontSize: '30px',
-            color: '#0195fa',
-          }}
-        />
         <div
           style={{
-            margin: '1.5rem 0.5rem',
-            fontSize: '20px',
-            fontWeight: 'bold',
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'center',
           }}
         >
-          {displayText}
+          {flagType ? (
+            <FaFlagCheckered className='FlagIcon' />
+          ) : (
+            <FaRegFlag className='FlagIcon' />
+          )}
+          <div
+            style={{
+              fontSize: '20px',
+              fontWeight: 'bold',
+            }}
+          >
+            {displayText}
+          </div>
         </div>
       </Card>
       <Modal
@@ -92,18 +90,34 @@ const SelectModal = ({
         aria-labelledby='contained-modal-title-vcenter'
         centered={true}
       >
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            textAlign: 'center',
+            margin: '1rem 0rem',
+          }}
+        >
+          <Modal.Title style={{ flexGrow: 1, position: 'relative', zIndex: 0 }}>
+            터미널 선택
+          </Modal.Title>
+          <FaXmark onClick={handleClose} className='CloseIcon' />
+        </div>
         <Modal.Body>
           <Form>
-            <Form.Group className='mb-3' controlId='formBasicEmail'>
+            <Form.Group controlId='formBasicEmail' className='SearchForm'>
               <Form.Control
+                className='SearchCard'
                 type='text'
                 placeholder='터미널이름을 입력하세요.'
                 defaultValue={''}
                 value={searchValue}
                 onChange={handleChange}
-                style={{ fontSize: '20px' }}
               />
             </Form.Group>
+            <Card className='InsideCardDum'>
+              <div></div>
+            </Card>
             <Card className='InsideCard'>
               {searchMode
                 ? searchArr.map((item) => (
@@ -125,6 +139,29 @@ const SelectModal = ({
                       }}
                     >
                       {item}
+                      {selectItem === item ? (
+                        <Button
+                          onClick={() => {
+                            handleClose()
+                            setCardSelect(selectItem)
+                            clickChange(selectItem)
+                          }}
+                          style={{
+                            border: '0',
+                            borderRadius: '20px',
+                            backgroundColor: '#4747FE',
+                            color: '#FFFFFF',
+                            fontSize: '15px',
+                            width: '4rem',
+                            height: '2rem',
+                            margin: '0',
+                          }}
+                        >
+                          선택
+                        </Button>
+                      ) : (
+                        <></>
+                      )}
                     </Card.Body>
                   ))
                 : terminalName.map((item) => (
@@ -146,53 +183,25 @@ const SelectModal = ({
                       }}
                     >
                       {item}
+                      {selectItem === item ? (
+                        <Button
+                          onClick={() => {
+                            handleClose()
+                            setCardSelect(selectItem)
+                            clickChange(selectItem)
+                          }}
+                          className='SelectButton'
+                        >
+                          선택
+                        </Button>
+                      ) : (
+                        <></>
+                      )}
                     </Card.Body>
                   ))}
             </Card>
           </Form>
         </Modal.Body>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginBottom: '1rem',
-            flexDirection: 'column',
-          }}
-        >
-          <Button
-            onClick={() => {
-              handleClose()
-              setCardSelect(selectItem)
-              clickChange(selectItem)
-            }}
-            style={{
-              margin: '0.2rem 0rem',
-              border: '3px solid',
-              borderRadius: '10px',
-              backgroundColor: '#0195fa',
-              color: '#FFFFFF',
-              fontSize: '20px',
-              width: '10rem',
-            }}
-          >
-            확인
-          </Button>
-          <Button
-            onClick={handleClose}
-            style={{
-              margin: '0.2rem 0rem',
-              border: '3px solid',
-              borderRadius: '10px',
-              color: '#FFFFFF',
-              backgroundColor: '#999999',
-              fontSize: '20px',
-              width: '10rem',
-            }}
-          >
-            닫기
-          </Button>
-        </div>
       </Modal>
     </>
   )
