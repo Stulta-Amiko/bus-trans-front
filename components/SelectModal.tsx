@@ -98,7 +98,14 @@ const SelectModal = ({
             margin: '1rem 0rem',
           }}
         >
-          <Modal.Title style={{ flexGrow: 1, position: 'relative', zIndex: 0 }}>
+          <Modal.Title
+            style={{
+              flexGrow: 1,
+              position: 'relative',
+              zIndex: 0,
+              fontWeight: '600',
+            }}
+          >
             터미널 선택
           </Modal.Title>
           <FaXmark onClick={handleClose} className='CloseIcon' />

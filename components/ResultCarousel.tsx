@@ -74,7 +74,7 @@ const ResultCarousel = (props: any) => {
                           : `${Math.floor(item[0].totalTime / 60)}시간 ${
                               item[0].totalTime % 60
                             }분`
-                        : item[0].totalTime}
+                        : `${item[0].totalTime}분`}
                     </span>
                     {item[0].transferCount === 0 ? (
                       <span
