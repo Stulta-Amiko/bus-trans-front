@@ -1,12 +1,69 @@
-.CardContainer {
-    width: 30rem;
+@media (max-width: 767px) {
+    .SubmitButton {
+        width: 90vw;
+    }
+    .CapsuleContainer {
+        width: 95vw;
+        border-radius: 10px 10px 10px 10px;
+    }
+    .EllipseUnder {
+        width: 95vw;
+        border-radius: 10px;
+    }
+    .EllipseUpper {
+        width: 95vw;
+    }
+    .SelectContainer {
+        width: 90vw;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .SubmitButton {
+        width: 26rem;
+    }
+    .CapsuleContainer {
+        width: 30rem;
+        border-radius: 10px 10px 10px 10px;
+    }
+    .EllipseUnder {
+        width: 30rem;
+        border-radius: 10px;
+    }
+    .EllipseUpper {
+        width: 30rem;
+    }
+    .SelectContainer {
+        width: 26rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .SubmitButton {
+        width: 26rem;
+    }
+    .CapsuleContainer {
+        width: 30rem;
+        border-radius: 10px 0px 0px 10px;
+    }
+    .EllipseUnder {
+        width: 30rem;
+    }
+    .EllipseUpper {
+        width: 30rem;
+    }
+    .SelectContainer {
+        width: 26rem;
+    }
+}
+
+.CapsuleContainer {
     height: 35rem;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
     border-width: 0;
-    border-radius: 10px 0px 0px 10px;
     box-shadow: 10px 10px 10px 10px rgba(210, 210, 250, 0.4);
     background-color: #7E7EFE;
 }
@@ -36,22 +93,7 @@
     cursor: pointer;
 }
 
-.CardTime {
-    width: 8rem;
-    height: 3rem;
-    margin: 0.8rem 0.5rem;
-    border-radius: 1rem;
-    border: 0;
-    background-color: #e8efff;
-    justify-content: center;
-}
-
-.CardTime:hover {
-    background-color: #cce8ff;
-}
-
 .SubmitButton {
-    width: 26rem;
     height: 4rem;
     border: 0;
     border-radius: 10px;
@@ -71,7 +113,6 @@
 
 .EllipseUnder {
     z-index: 0;
-    width: 30rem;
     height: 35rem;
     background-color: rgba(118, 118, 254, 1);
     position: absolute;
@@ -80,7 +121,6 @@
 
 .EllipseUpper {
     z-index: 1;
-    width: 30rem;
     height: 35rem;
     background-color: rgba(110, 110, 254, 1);
     position: absolute;
@@ -93,7 +133,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 26rem;
     height: 4rem;
     border-radius: 10px;
     border: 0;

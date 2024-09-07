@@ -1,5 +1,22 @@
+@media (max-width: 767px) {
+    .CardTime {
+        width: 35vw;
+    }
+    .NowtimeButton {
+        width: 50vw;
+    }
+}
+
+@media (min-width: 768px) {
+    .CardTime {
+        width: 10rem;
+    }
+    .NowtimeButton {
+        width: 15rem;
+    }
+}
+
 .CardTime {
-    width: 10rem;
     height: 4rem;
     margin: 0rem 1rem 0rem 0rem;
     border-radius: 10px;
@@ -13,7 +30,6 @@
 
 .NowtimeButton {
     height: 4rem;
-    width: 15rem;
     border: 0;
     border-radius: 10px;
     background-color: #4848FE;

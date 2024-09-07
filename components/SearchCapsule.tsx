@@ -78,7 +78,7 @@ const SearchCapsule = () => {
 
   return (
     <Form onSubmit={submitHandler}>
-      <Card className='CardContainer'>
+      <Card className='CapsuleContainer'>
         <div className='EllipseUnder' />
         <div className='EllipseUpper' />
         <Card className='SelectContainer'>

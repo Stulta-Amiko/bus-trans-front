@@ -1,0 +1,91 @@
+@media (max-width: 767px) {
+    .ImageContainer {
+        display: none;
+        visibility: hidden;
+    }
+    .ImageDiv {
+        display: none;
+        visibility: hidden;
+    }
+    .CardContainer {
+        justify-content: center;
+        align-items: center;
+    }
+    .CapsuleDiv {
+        z-index: 1;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .ImageContainer {
+        display: none;
+    }
+    .ImageDiv {
+        display: none;
+    }
+    .CardContainer {
+        justify-content: center;
+        align-items: center;
+    }
+    .CapsuleDiv {
+        z-index: 1;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .ImageContainer {
+        display: none;
+    }
+    .ImageDiv {
+        display: none;
+    }
+    .CardContainer {
+        justify-content: center;
+        align-items: center;
+    }
+    .CapsuleDiv {
+        z-index: 1;
+    }
+}
+
+@media (min-width: 1200px) {
+    .ImageContainer {
+        display: flex;
+    }
+    .CardContainer {
+        justify-content: center;
+        align-items: center;
+    }
+    .CapsuleDiv {
+        z-index: 1;
+        position: absolute;
+    }
+}
+
+.ImageContainer {
+    flex-direction: row;
+    width: 65rem;
+    height: 35rem;
+    border-width: 0;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 10px 10px 10px 10px rgba(210, 210, 250, 0.4);
+}
+
+.ImageDiv {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    z-index: 0;
+    flex-grow: 1;
+    margin-top: 10rem;
+}
+
+.CardContainer {
+    display: flex;
+    max-height: 100vh;
+    height: 100vh;
+    max-width: 100vw;
+    position: relative;
+}

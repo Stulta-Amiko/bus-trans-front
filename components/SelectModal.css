@@ -1,3 +1,15 @@
+@media (max-width: 767px) {
+    .CardSearch {
+        width: 35vw;
+    }
+}
+
+@media (min-width: 768px) {
+    .CardSearch {
+        width: 12rem;
+    }
+}
+
 .InsideCard {
     margin-bottom: 1rem;
     max-height: 20rem;
@@ -58,7 +70,6 @@
 .CardSearch {
     flex-direction: row;
     justify-content: center;
-    width: 12rem;
     height: 2.5rem;
     border-radius: 1rem;
     border: 0;

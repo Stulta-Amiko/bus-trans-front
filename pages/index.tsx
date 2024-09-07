@@ -5,10 +5,10 @@ import SearchCard from '../components/SearchCard'
 
 const App = () => {
   return (
-    <>
+    <div style={{ backgroundColor: '#ebecff' }}>
       <BootStrapClient />
       <SearchCard />
-    </>
+    </div>
   )
 }
 
