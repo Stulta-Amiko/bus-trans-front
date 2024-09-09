@@ -86,7 +86,6 @@ const SelectModal = ({
       <Modal
         show={show}
         onHide={handleClose}
-        size='lg'
         aria-labelledby='contained-modal-title-vcenter'
         centered={true}
       >

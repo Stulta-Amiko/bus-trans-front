@@ -8,6 +8,7 @@ import { Form, Button, Card, Modal, Spinner } from 'react-bootstrap'
 import { FaExchangeAlt } from 'react-icons/fa'
 import { FaXmark } from 'react-icons/fa6'
 import TimePickerModal from './TimePickerModal'
+import MadeInfo from './MadeInfo'
 
 const SearchCapsule = () => {
   const now = new Date()
@@ -81,6 +82,7 @@ const SearchCapsule = () => {
       <Card className='CapsuleContainer'>
         <div className='EllipseUnder' />
         <div className='EllipseUpper' />
+        <MadeInfo />
         <Card className='SelectContainer'>
           <SelectModal
             onValueChange={departValueChange}

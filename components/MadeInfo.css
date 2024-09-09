@@ -1,0 +1,20 @@
+@media (max-width: 767px) {
+    .Icon {
+        margin-right: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .Icon {
+        margin-right: 2rem;
+    }
+}
+
+.Icon {
+    color: rgba(20, 20, 20, 0.5);
+    position: absolute;
+    margin-bottom: 17rem;
+    font-size: 1.5rem;
+    z-index: 6;
+    right: 0;
+}

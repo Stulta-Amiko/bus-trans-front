@@ -50,14 +50,16 @@
 .CardItem {
     font-size: 20px;
     font-weight: 600;
-    max-height: 8vh;
+    min-height: 4rem;
+    max-height: 4rem;
 }
 
 .CardItemFixed {
     color: #222222;
     background-color: rgb(194, 196, 253);
     border-radius: 10px;
-    max-height: 8vh;
+    min-height: 4rem;
+    max-height: 4rem;
     font-size: 20px;
     font-weight: 600;
     display: flex;
