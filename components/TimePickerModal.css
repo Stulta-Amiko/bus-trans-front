@@ -5,14 +5,79 @@
     .NowtimeButton {
         width: 50vw;
     }
+    .UnderArrow {
+        display: none;
+        visibility: hidden;
+    }
+    .UnderArrow:hover {
+        display: none;
+        visibility: hidden;
+    }
+    .Arrow {
+        display: none;
+        visibility: hidden;
+    }
+    .Arrow:hover {
+        display: none;
+        visibility: hidden;
+    }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1199px) {
     .CardTime {
         width: 10rem;
     }
     .NowtimeButton {
         width: 15rem;
+    }
+    .UnderArrow {
+        display: none;
+        visibility: hidden;
+    }
+    .UnderArrow:hover {
+        display: none;
+        visibility: hidden;
+    }
+    .Arrow {
+        display: none;
+        visibility: hidden;
+    }
+    .Arrow:hover {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+@media (min-width: 1200px) {
+    .CardTime {
+        width: 10rem;
+    }
+    .NowtimeButton {
+        width: 15rem;
+    }
+    .UnderArrow {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #4747FE;
+        margin-left: 1rem;
+        margin-top: 0rem;
+    }
+    .UnderArrow:hover {
+        background-color: #d6d6fb;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .Arrow {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #4747FE;
+        margin-left: 1rem;
+        margin-bottom: 0rem;
+    }
+    .Arrow:hover {
+        background-color: #d6d6fb;
+        border-radius: 5px;
+        cursor: pointer;
     }
 }
 
@@ -58,34 +123,6 @@
 
 .CloseIcon:hover {
     color: #3a3ad2;
-    cursor: pointer;
-}
-
-.Arrow {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #4747FE;
-    margin-left: 1rem;
-    margin-bottom: 0rem;
-}
-
-.Arrow:hover {
-    background-color: #d6d6fb;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.UnderArrow {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #4747FE;
-    margin-left: 1rem;
-    margin-top: 0rem;
-}
-
-.UnderArrow:hover {
-    background-color: #d6d6fb;
-    border-radius: 5px;
     cursor: pointer;
 }
 
