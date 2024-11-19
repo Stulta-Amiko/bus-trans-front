@@ -21,6 +21,13 @@
         display: none;
         visibility: hidden;
     }
+    .TimeForm {
+        width: 14rem;
+        font-size: 30px;
+        font-weight: bold;
+        background-color: rgab(255, 255, 255, 0);
+        border: 0;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
@@ -45,6 +52,13 @@
     .Arrow:hover {
         display: none;
         visibility: hidden;
+    }
+    .TimeForm {
+        width: 14rem;
+        font-size: 30px;
+        font-weight: bold;
+        background-color: rgab(255, 255, 255, 0);
+        border: 0;
     }
 }
 
@@ -78,6 +92,14 @@
         background-color: #d6d6fb;
         border-radius: 5px;
         cursor: pointer;
+    }
+    .TimeForm {
+        width: 14rem;
+        font-size: 30px;
+        font-weight: bold;
+        height: 3rem;
+        background-color: rgab(255, 255, 255, 0);
+        border: 0;
     }
 }
 
@@ -147,13 +169,4 @@
     font-size: 25px;
     font-weight: bold;
     margin: 0rem 0.2rem;
-}
-
-.TimeForm {
-    width: 14rem;
-    font-size: 30px;
-    font-weight: bold;
-    height: 30px;
-    background-color: rgab(255, 255, 255, 0);
-    border: 0;
 }
