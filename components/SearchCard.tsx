@@ -5,8 +5,11 @@ import Image from 'next/image'
 
 function SearchCard() {
   return (
-    <div className='CardContainer' style={{ backgroundColor: '#ebecff' }}>
+    <div className='CardContainer'>
       <div style={{ zIndex: 0, position: 'absolute' }}>
+        <div className='ImageDivMob'>
+          <Image width={230} height={150} alt='busm' src='/bustrans.png' />
+        </div>
         <div className='CapsuleDiv'>
           <SearchCapsule />
         </div>

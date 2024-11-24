@@ -4,6 +4,7 @@ import BootStrapClient from '../components/BootstrapClient'
 import SearchCard from '../components/SearchCard'
 import type { Metadata } from 'next'
 import Head from 'next/head'
+import localFont from 'next/font/local'
 
 export const metadata: Metadata = {
   title: 'Next.js',
@@ -14,13 +15,13 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div>
+    <main>
       <Head>
         <title>시간표기반 버스환승정보 플랫폼</title>
         <link rel='icon' href='/busicon.png'></link>
       </Head>
       <BootStrapClient />
       <SearchCard />
-    </div>
+    </main>
   )
 }

@@ -1,20 +1,24 @@
 @media (max-width: 767px) {
     .SubmitButton {
-        width: 90vw;
+        width: 85vw;
     }
     .CapsuleContainer {
-        width: 95vw;
+        width: 90vw;
+        max-height: 95vw;
         border-radius: 10px 10px 10px 10px;
     }
     .EllipseUnder {
-        width: 95vw;
+        width: 90vw;
+        max-height: 95vw;
         border-radius: 10px;
     }
     .EllipseUpper {
-        width: 95vw;
+        width: 90vw;
+        max-height: 95vw;
     }
     .SelectContainer {
-        width: 90vw;
+        width: 85vw;
+        max-height: 95vw;
     }
 }
 
@@ -126,6 +130,15 @@
     position: absolute;
     border-radius: 10px;
     clip-path: ellipse(59% 72% at 0% 100%)
+}
+
+.title {
+    z-index: 2;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #FFF7FC;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 .SelectContainer {

@@ -7,6 +7,13 @@
         display: none;
         visibility: hidden;
     }
+    .ImageDivMob {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+    }
     .CardContainer {
         justify-content: center;
         align-items: center;
@@ -30,6 +37,13 @@
     .CapsuleDiv {
         z-index: 1;
     }
+    .ImageDivMob {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -46,6 +60,13 @@
     .CapsuleDiv {
         z-index: 1;
     }
+    .ImageDivMob {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -55,6 +76,10 @@
     .CardContainer {
         justify-content: center;
         align-items: center;
+    }
+    .ImageDivMob {
+        display: none;
+        visibility: hidden;
     }
     .CapsuleDiv {
         z-index: 1;
@@ -88,4 +113,5 @@
     height: 100vh;
     max-width: 100vw;
     position: relative;
+    background-color: #ebecff;
 }

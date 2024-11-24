@@ -143,7 +143,7 @@ const TimePickerModal = ({
       </Card>
 
       <Button className='NowtimeButton' onClick={nowTimeSet}>
-        현재 시간으로 설정
+        지금 시간으로
       </Button>
       <Modal centered show={modalShow} onHide={handleClose}>
         <div

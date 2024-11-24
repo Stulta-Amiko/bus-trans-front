@@ -1,9 +1,9 @@
 @media (max-width: 767px) {
     .CardTime {
-        width: 35vw;
+        width: 36vw;
     }
     .NowtimeButton {
-        width: 50vw;
+        width: 45vw;
     }
     .UnderArrow {
         display: none;

@@ -80,6 +80,11 @@ const SearchCapsule = () => {
   return (
     <Form onSubmit={submitHandler}>
       <Card className='CapsuleContainer'>
+        <div className='title'>
+          IaaS를 이용한 시간표기반
+          <br />
+          시외고속버스 경로조회 서비스
+        </div>
         <div className='EllipseUnder' />
         <div className='EllipseUpper' />
         <MadeInfo />
@@ -114,7 +119,6 @@ const SearchCapsule = () => {
         >
           <TimePickerModal onValueChange={handleChange} />
         </div>
-
         <Modal
           show={modalShow}
           onHide={() => {
