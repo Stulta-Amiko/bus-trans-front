@@ -156,18 +156,22 @@ const TimePickerModal = ({
           <div className='ModalBodyDiv'>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <div>
-                <FaAngleUp
+                <Button
                   className='Arrow'
                   onClick={() => {
                     timeButton('houradd')
                   }}
-                />
-                <FaAngleUp
-                  className='Arrow'
+                >
+                  시간 +
+                </Button>
+                <Button
+                  className='UnderArrow'
                   onClick={() => {
                     timeButton('minadd')
                   }}
-                />
+                >
+                  분 +
+                </Button>
               </div>
               <ValidatedFormControl
                 onChange={handleChange}
@@ -178,18 +182,22 @@ const TimePickerModal = ({
                 required
               />
               <div>
-                <FaAngleDown
-                  className='UnderArrow'
+                <Button
+                  className='Arrow'
                   onClick={() => {
                     timeButton('hoursub')
                   }}
-                />
-                <FaAngleDown
+                >
+                  시간 -
+                </Button>
+                <Button
                   className='UnderArrow'
                   onClick={() => {
                     timeButton('minsub')
                   }}
-                />
+                >
+                  분 -
+                </Button>
               </div>
             </div>
             <Button

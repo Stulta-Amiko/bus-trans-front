@@ -70,25 +70,31 @@
         width: 15rem;
     }
     .UnderArrow {
-        font-size: 2rem;
+        font-size: 15px;
         font-weight: bold;
-        color: #4747FE;
-        margin-left: 1vw;
+        width: 4rem;
+        color: #FFF7FC;
+        background-color: #4747FE;
+        border: 0;
+        border-radius: 3rem;
+        margin-left: 0.5rem;
     }
     .UnderArrow:hover {
-        background-color: #d6d6fb;
-        border-radius: 5px;
+        background-color: #3a3ad2;
         cursor: pointer;
     }
     .Arrow {
-        font-size: 2rem;
+        font-size: 15px;
         font-weight: bold;
-        color: #4747FE;
-        margin-left: 1vw;
+        width: 4rem;
+        color: #FFF7FC;
+        background-color: #4747FE;
+        border: 0;
+        border-radius: 3rem;
+        margin-left: 0.5rem;
     }
     .Arrow:hover {
-        background-color: #d6d6fb;
-        border-radius: 5px;
+        background-color: #3a3ad2;
         cursor: pointer;
     }
     .TimeForm {
