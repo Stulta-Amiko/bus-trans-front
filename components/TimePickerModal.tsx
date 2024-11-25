@@ -146,34 +146,14 @@ const TimePickerModal = ({
         지금 시간으로
       </Button>
       <Modal centered show={modalShow} onHide={handleClose}>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            textAlign: 'center',
-            margin: '1rem 0rem',
-          }}
-        >
+        <div className='ModalIn'>
           <Modal.Title style={{ flexGrow: 1, position: 'relative', zIndex: 0 }}>
             시간 설정
           </Modal.Title>
           <FaXmark onClick={handleClose} className='CloseIcon' />
         </div>
-        <Modal.Body
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'column',
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}
-          >
+        <Modal.Body className='ModalBody'>
+          <div className='ModalBodyDiv'>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <div>
                 <FaAngleUp

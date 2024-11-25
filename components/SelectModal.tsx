@@ -89,14 +89,7 @@ const SelectModal = ({
         aria-labelledby='contained-modal-title-vcenter'
         centered={true}
       >
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            textAlign: 'center',
-            margin: '1rem 0rem',
-          }}
-        >
+        <div className='ModalDiv'>
           <Modal.Title
             style={{
               flexGrow: 1,

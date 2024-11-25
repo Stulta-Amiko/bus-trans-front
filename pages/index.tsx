@@ -4,7 +4,6 @@ import BootStrapClient from '../components/BootstrapClient'
 import SearchCard from '../components/SearchCard'
 import type { Metadata } from 'next'
 import Head from 'next/head'
-import localFont from 'next/font/local'
 
 export const metadata: Metadata = {
   title: 'Next.js',
