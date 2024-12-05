@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card'
 
 type routeDetail = {
   count: number
+  busType: string
   arrHour: string
   arrMin: string
   arrTmn: string
@@ -112,7 +113,30 @@ const ResultCarousel = (props: any) => {
                       {item[1].route.map(
                         (routeItem: routeDetail, idx: number) => (
                           <>
-                            <div style={{ margin: '0.3rem 0 0' }}>
+                            <div style={{ margin: '-0.3rem 0 0' }}>
+                              <div>
+                                {routeItem.busType === 'int' ? (
+                                  <span
+                                    style={{
+                                      fontSize: '20px',
+                                      color: '#03a2ff',
+                                      fontWeight: 'bold',
+                                    }}
+                                  >
+                                    시외
+                                  </span>
+                                ) : (
+                                  <span
+                                    style={{
+                                      fontSize: '20px',
+                                      color: '#ff2003',
+                                      fontWeight: '900',
+                                    }}
+                                  >
+                                    고속
+                                  </span>
+                                )}
+                              </div>
                               <span
                                 style={{ fontSize: '20px', fontWeight: 'bold' }}
                               >
